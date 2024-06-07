@@ -134,28 +134,6 @@ logs/
 *.so
 .idea
 
-opv2v_data_dumping
-logs/
-dataset_link
-data_vis/
-icp/vis_result
-icp/npy_result
-opencood/visualization/draw_fancy/result*
-opencood/visualization/draw_fancy/dataset*
-opencood/visualization/draw_box_align/vis_result
-opencood/visualization/draw_box_align/result_*
-keypoints_file
-vis_result/
-image_compare/
-box_align_items
-stage1_boxes/
-bash_script/
-dataset/
-opencood/logs
-opencood/logs_HEAL
-opencood/logs_baseline
-opencood/models/heter_SECOND_lift_splat_2stage_dense_redet.py
-opencood/models/heter_SECOND_lift_splat_2stage_redet.py
-opencood/loss/heterception_redet_loss.py
-opencood/hypes_yaml/opv2v/heter
-./vscode
+# Checkpoint
+opencood/logs/
+

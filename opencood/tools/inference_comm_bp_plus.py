@@ -65,16 +65,6 @@ def test_parser():
     parser.add_argument('--result_name', default="", type=str, help="result txt name")
     parser.add_argument('--noise', default=0.0, type=float, help="pose error")
     parser.add_argument('--delay_time', default="-1", type=int, help="latency time")
-    parser.add_argument('--sample_method', type=str, default="none",
-                        help="the method to downsample the point cloud")
-    parser.add_argument('--store_boxes', default=True,action='store_true',
-                        help= "store detection boxes and gt boxes")
-    parser.add_argument('--sampling_rate', type=float, default=1.0)
-    parser.add_argument('--sampler_path', type=str, default=None)
-    parser.add_argument('--box_ratio',type=float,default=1.0)
-    parser.add_argument('--background_ratio',type=float,default=1.0)
-    parser.add_argument('--expansion_ratio',type=float,default=20.0)
-    parser.add_argument('--w2cthreshold',type=float,default=0.01)
     parser.add_argument('--vis_score',type=str,default='confidence',
                         help='confidence or uncertainty')
 
@@ -100,16 +90,8 @@ def main():
         hypes['time_delay'] = opt.delay_time
     else:
         pass
-    hypes.update({'sample_method': opt.sample_method})
-    hypes.update({'sampling_rate': opt.sampling_rate})
-    hypes.update({'store_boxes': opt.store_boxes})
-    hypes.update({'model_dir':opt.model_dir})
-    hypes.update({'sampler_path':opt.sampler_path})
-    hypes.update({'expansion_ratio':opt.expansion_ratio})
-    hypes.update({'box_ratio':opt.box_ratio})
-    hypes.update({'background_ratio':opt.background_ratio})
-    hypes.update({'late_choose_method':False})
     
+    hypes.update({'model_dir':opt.model_dir})
     hypes.update({'min_cav_num': opt.min_cav_num})
     hypes.update({'max_cav_num': opt.max_cav_num})
     print("*********Latency={}**********".format(hypes['time_delay']))
