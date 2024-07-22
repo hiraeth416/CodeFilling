@@ -10,6 +10,16 @@ data and install CodeFilling, the installation is the same.
 
 ## Quick Start
 
+### Train your model
+We adopt the same setting as OpenCOOD which uses yaml file to configure all the parameters for training. To train your own model from scratch or a continued checkpoint, run the following commonds:
+```python
+python opencood/tools/train.py --hypes_yaml ${CONFIG_FILE} [--model_dir  ${CHECKPOINT_FOLDER}]
+```
+Arguments Explanation:
+- `hypes_yaml`: the path of the training configuration file, e.g. `opencood/hypes_yaml/second_early_fusion.yaml`, meaning you want to train
+an early fusion model which utilizes SECOND as the backbone. See [Tutorial 1: Config System](https://opencood.readthedocs.io/en/latest/md_files/config_tutorial.html) to learn more about the rules of the yaml files.
+- `model_dir` (optional) : the path of the checkpoints. This is used to fine-tune the trained models. When the `model_dir` is
+given, the trainer will discard the `hypes_yaml` and load the `config.yaml` in the checkpoint folder.
 
 ### Test the model (benchmark setting)
 
@@ -66,18 +76,14 @@ given, the trainer will discard the `hypes_yaml` and load the `config.yaml` in t
 
 If you train DiscoNet with Knowledge Distillation, use opencood/tools/train_kd.py
 
-## Benchmark and model zoo
-
-
 ## Citation
  If you are using our OpenCOOD framework or OPV2V dataset for your research, please cite the following paper:
  ```bibtex
-@inproceedings{xu2022opencood,
-  author = {Runsheng Xu, Hao Xiang, Xin Xia, Xu Han, Jinlong Li, Jiaqi Ma},
-  title = {OPV2V: An Open Benchmark Dataset and Fusion Pipeline for Perception with Vehicle-to-Vehicle Communication},
-  booktitle = {2022 IEEE International Conference on Robotics and Automation (ICRA)},
-  year = {2022}}
+@inproceedings{YueCodeFilling:CVPR2024,
+  author = {Yue Hu, Juntong Peng, Sifei Liu, Junhao Ge, Si Liu, Siheng Chen},
+  title = {Communication-Efficient Collaborative Perception via Information Filling with Codebook},
+  booktitle = {2024 IEEE / CVF Computer Vision and Pattern Recognition Conference (CVPR)},
+  year = {2024}}
 ```
 
-Also, under this LICENSE, OpenCOOD is for non-commercial research only. Researchers can modify the source code for their own research only. Contracted work that generates corporate revenues and other general commercial use are prohibited under this LICENSE. See the LICENSE file for details and possible opportunities for commercial use.
-
+Thank for the cooperative perception codebases [OpenCOOD](https://github.com/DerrickXuNu/OpenCOOD) and [HEAL](https://github.com/yifanlu0227/HEAL).
